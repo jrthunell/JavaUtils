@@ -14,4 +14,9 @@ public class IO {
         byte[] bytes = Files.readAllBytes(Paths.get(filename));
         return new String(bytes);
     }
+
+    public static void writeEncryptedFile(String filename, String fileContents, String password) throws IOException {
+        String encryptedString = Crypto.encrypt(fileContents, password);
+        writeFile(filename, fileContents);
+    }
 }
