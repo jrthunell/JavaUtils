@@ -1,6 +1,6 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class IO {
 
@@ -8,5 +8,10 @@ public class IO {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
         writer.write(fileContents);
         writer.close();
+    }
+
+    public static String readFileToString(String filename) throws IOException{
+        byte[] bytes = Files.readAllBytes(Paths.get(filename));
+        return new String(bytes);
     }
 }
