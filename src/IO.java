@@ -10,7 +10,7 @@ public class IO {
         writer.close();
     }
 
-    public static String readFileToString(String filename) throws IOException{
+    public static String readFile(String filename) throws IOException{
         byte[] bytes = Files.readAllBytes(Paths.get(filename));
         return new String(bytes);
     }
@@ -21,7 +21,7 @@ public class IO {
     }
 
     public static String readEncryptedFile(String filename, String password) throws IOException {
-        String encryptedString = readFileToString(filename);
+        String encryptedString = readFile(filename);
         return Crypto.decrypt(encryptedString, password);
     }
 }
