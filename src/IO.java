@@ -19,4 +19,9 @@ public class IO {
         String encryptedString = Crypto.encrypt(fileContents, password);
         writeFile(filename, fileContents);
     }
+
+    public static String readEncryptedFile(String filename, String password) throws IOException {
+        String encryptedString = readFileToString(filename);
+        return Crypto.decrypt(encryptedString, password);
+    }
 }
